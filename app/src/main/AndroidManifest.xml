@@ -27,6 +27,15 @@
         </provider>
 
         <activity
+            android:name=".TelaInfosConta"
+            android:exported="false" />
+        <activity
+            android:name=".TelaAlterarSenha"
+            android:exported="false" />
+        <activity
+            android:name=".TelaInfoConta"
+            android:exported="false" />
+        <activity
             android:name=".TelaConfiguracao"
             android:exported="false"
             android:screenOrientation="portrait"/>
@@ -51,7 +60,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Login"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TelaHome"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -59,7 +72,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Login"
+            android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

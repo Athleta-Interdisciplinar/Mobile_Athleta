@@ -46,6 +46,7 @@ public class TelaFoto extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
         binding.camera.setOnClickListener(view -> {
 
             LayoutInflater inflater = getLayoutInflater();

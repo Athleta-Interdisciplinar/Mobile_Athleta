@@ -30,6 +30,17 @@ public class TelaConfiguracao extends AppCompatActivity {
             getSharedPreferences("login", MODE_PRIVATE).edit().remove("username").apply();
             login.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(login);
+        });
+
+        binding.alterarSenha.setOnClickListener(v -> {
+            Intent alterarSenha = new Intent(this, TelaAlterarSenha.class);
+            startActivity(alterarSenha);
+            finish();
+        });
+
+        binding.infoConta.setOnClickListener(v -> {
+            Intent infosConta = new Intent(this, TelaInfosConta.class);
+            startActivity(infosConta);
             finish();
         });
     }
