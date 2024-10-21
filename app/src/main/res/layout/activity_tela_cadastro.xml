@@ -8,8 +8,8 @@
     tools:context=".TelaCadastro">
 
     <ScrollView
-        android:layout_width="441dp"
-        android:layout_height="478dp"
+        android:layout_width="408dp"
+        android:layout_height="592dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
