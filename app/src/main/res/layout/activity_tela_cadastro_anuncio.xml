@@ -199,6 +199,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginTop="1dp"
+                android:layout_gravity="center"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
                 android:background="@drawable/post_design"

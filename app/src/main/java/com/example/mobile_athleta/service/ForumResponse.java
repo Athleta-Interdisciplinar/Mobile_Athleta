@@ -2,24 +2,22 @@ package com.example.mobile_athleta.service;
 
 import com.example.mobile_athleta.models.Forum;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-public class ApiResponse {
+public class ForumResponse {
     private boolean responseSucessfull;
     private String description;
-    private List<Object> object;
+    private List<Forum> forums;
     private String aditionalInformation;
 
-    public ApiResponse(boolean responseSucessfull, String description, List<Object> object, String aditionalInformation) {
+    public ForumResponse(boolean responseSucessfull, String description, List<Forum> object, String aditionalInformation) {
         this.responseSucessfull = responseSucessfull;
         this.description = description;
-        this.object = object;
+        this.forums = object;
         this.aditionalInformation = aditionalInformation;
     }
 
-    public boolean getResponseSucessfull() {
+    public boolean isResponseSucessfull() {
         return responseSucessfull;
     }
 
@@ -27,13 +25,11 @@ public class ApiResponse {
         return description;
     }
 
-    public List<Object> getObject() {
-        return object;
+    public List<Forum> getForums() {
+        return forums;
     }
 
     public String getAditionalInformation() {
         return aditionalInformation;
     }
-
-
 }

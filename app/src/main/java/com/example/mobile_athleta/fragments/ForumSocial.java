@@ -84,7 +84,7 @@ public class ForumSocial extends Fragment {
                 listarForumPorNomeUseCase.verificarForuns(token, query, new ListarForumPorNomeUseCase.VerificarCallback() {
                     @Override
                     public void onVerificarSuccess(List<Forum> foruns, String message) {
-                        forumAdapter.setListaFiltrada(foruns);
+                        forumAdapter.updateForums(foruns);
                         textViewNoResults.setVisibility(View.GONE);
                         imageNoResults.setVisibility(View.GONE);
                         recyclerViewForum.setVisibility(View.VISIBLE);
@@ -92,15 +92,22 @@ public class ForumSocial extends Fragment {
 
                     @Override
                     public void onVerificarFailure(String errorMessage) {
-
+                        textViewNoResults.setVisibility(View.VISIBLE);
+                        imageNoResults.setVisibility(View.VISIBLE);
+                        recyclerViewForum.setVisibility(View.GONE);
                     }
                 });
-                return false;
+                return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filterList(newText);
+                if (newText.isEmpty()) {
+                    recyclerViewForum.setVisibility(View.VISIBLE);
+                    textViewNoResults.setVisibility(View.GONE);
+                    imageNoResults.setVisibility(View.GONE);
+                    forumAdapter.setListaFiltrada(forumList);
+                }
                 return false;
             }
         });
@@ -108,23 +115,4 @@ public class ForumSocial extends Fragment {
         return view;
     }
 
-    private void filterList(String text) {
-        List<Forum> listaFiltrada = new ArrayList<>();
-        for (Forum forum : forumList) {
-            if (forum.getNome().toLowerCase().contains(text.toLowerCase())) {
-                listaFiltrada.add(forum);
-            }
-        }
-
-        if (listaFiltrada.isEmpty()) {
-            textViewNoResults.setVisibility(View.VISIBLE);
-            imageNoResults.setVisibility(View.VISIBLE);
-            recyclerViewForum.setVisibility(View.GONE);
-        } else {
-            textViewNoResults.setVisibility(View.GONE);
-            imageNoResults.setVisibility(View.GONE);
-            recyclerViewForum.setVisibility(View.VISIBLE);
-            forumAdapter.setListaFiltrada(listaFiltrada);
-        }
-    }
 }

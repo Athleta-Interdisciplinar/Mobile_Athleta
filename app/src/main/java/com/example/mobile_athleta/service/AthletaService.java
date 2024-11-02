@@ -1,6 +1,8 @@
 package com.example.mobile_athleta.service;
 
+import com.example.mobile_athleta.models.Anuncio;
 import com.example.mobile_athleta.models.Comentario;
+import com.example.mobile_athleta.models.Forum;
 import com.example.mobile_athleta.models.Post;
 import com.example.mobile_athleta.models.RedisResponse;
 import com.example.mobile_athleta.models.Usuario;
@@ -70,4 +72,17 @@ public interface AthletaService {
 
     @POST("api/anuncio/inserir")
     Call<ApiResponse> inserirAnuncio(@Header("Authorization") String token, @Body Anuncio anuncio);
+
+    @GET("api/forum/listar")
+    Call<List<Forum>> listarForuns(
+            @Header("Authorization") String token,
+            @Query("pagina") int pagina,
+            @Query("tamanho") int tamanho
+    );
+
+    @GET("api/forum/listar/{nome}")
+    Call<ForumResponse> listarForunsPorNome(
+            @Header("Authorization") String token,
+            @Path("nome") String nome
+    );
 }
